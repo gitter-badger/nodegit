@@ -85,10 +85,11 @@
     "mocha": "mocha test/runner test/tests",
     "test": "npm run lint && npm run cov",
     "missing-tests": "node generate/missing-tests",
+    "prepublish": "npm run generate",
     "publish": "node-pre-gyp package && node-pre-gyp publish",
     "generate": "node generate/setup && node generate",
-    "install": "npm run generate && node install",
-    "recompile": "BUILD_ONLY=true npm install",
+    "install": "node install",
+    "recompile": "BUILD_ONLY=true npm run generate && npm install",
     "rebuild": "BUILD_ONLY=true npm run generate && node-gyp configure build"
   }
 }
